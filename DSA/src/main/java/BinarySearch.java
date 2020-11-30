@@ -23,11 +23,13 @@ public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {1,34,45,46,57,59,70,94,112};
         int size = arr.length;
-        int searchItem = 34;
+        int searchItem = 35;
 
         int resultIndex = new BinarySearch().binarySearch(arr,0,size-1, searchItem);
 
-        System.out.println("The Item found at the index : "+ resultIndex);
-
+        if(resultIndex == -1)
+            System.out.println("The Item found in the array");
+        else
+            System.out.println("The Item found at the index : "+ resultIndex);
     }
 }
