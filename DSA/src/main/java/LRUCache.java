@@ -27,8 +27,10 @@ public class LRUCache {
             newNode.value = value;
             newNode.left = null;
             newNode.right = null;
+            System.out.println("cache.zize :"+cache.size());
 
             if(cache.size() > LRU_CACHE_SIZE){
+                System.out.println("cache.zize :"+cache.size());
                 cache.remove(endNode.key);
                 removeEntry(endNode);
                 addEntryToTheTop(newNode);
@@ -55,13 +57,13 @@ public class LRUCache {
         if(entry.left != null){
             entry.left.right = entry.right;
         }else{
-            startNode = entry.right;
+            startNode = entry;
         }
 
         if(entry.right != null)
             entry.right.left = entry.left;
         else
-            endNode = entry.left;
+            endNode = entry;
     }
 
     public int getEntry(int key){
@@ -83,10 +85,15 @@ public class LRUCache {
         lruCache.addEntry(1,1);
         lruCache.addEntry(8,10);
         lruCache.addEntry(3,5);
-        lruCache.addEntry(1,5);
+       // lruCache.addEntry(1,5);
         lruCache.addEntry(5,9);
         lruCache.addEntry(2,24);
+        lruCache.addEntry(12,234);
 
+        System.out.println(lruCache.getEntry(8));
+        System.out.println(lruCache.getEntry(3));
         System.out.println(lruCache.getEntry(5));
+        System.out.println(lruCache.getEntry(2));
+        System.out.println(lruCache.getEntry(1));
     }
 }
